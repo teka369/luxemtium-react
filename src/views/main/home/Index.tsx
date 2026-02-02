@@ -18,7 +18,7 @@ const Index: React.FC = () => {
 
     // Simula la redirección después de la animación (1s)
     setTimeout(() => {
-      window.location.href = '/portafolio.html'; // O usa router.push('/portafolio') si usas Next.js/React Router
+      window.location.href = '/portafolio'; // O usa router.push('/portafolio') si usas Next.js/React Router
     }, 1000);
   };
 
@@ -80,7 +80,7 @@ const Index: React.FC = () => {
               Cotizar Proyecto
             </a>
             <a 
-              href="/portafolio.html" 
+              href="/portafolio" 
               onClick={handlePortfolioClick}
               className="border border-brand text-white hover:bg-[rgba(255,122,0,0.1)] hover:scale-105 font-bold py-[14px] px-[30px] rounded-lg transition-all duration-300 inline-block"
             >

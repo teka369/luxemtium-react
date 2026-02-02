@@ -12,7 +12,7 @@ import './css/globals.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/luxemtium-react">
+    <BrowserRouter>
       <Header />
 
       <Routes>
