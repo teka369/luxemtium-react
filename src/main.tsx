@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Header from './views/main/layouts/Header'
 import Index from './views/main/home/Index'
@@ -12,7 +12,7 @@ import './css/globals.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HashRouter>
+    <BrowserRouter basename="/luxemtium-react">
       <Header />
 
       <Routes>
@@ -22,6 +22,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
 
-    </HashRouter>
+    </BrowserRouter>
   </StrictMode>
 )

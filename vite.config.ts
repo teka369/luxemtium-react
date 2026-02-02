@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: 'https://teka369.github.io/luxemtium-react',
+  base: '/luxemtium-react/',
 })
