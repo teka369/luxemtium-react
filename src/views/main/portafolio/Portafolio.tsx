@@ -82,7 +82,7 @@ const Portafolio: React.FC = () => {
             >
               <div className="overflow-hidden bg-black">
                 <video 
-                  ref={(el) => (videoRefs.current[index] = el!)}
+                  ref={(el) => { (videoRefs.current[index] = el!)}}
                   src={proyecto.video}
                   muted
                   loop
