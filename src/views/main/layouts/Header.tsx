@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importamos Link
 import Navbar from './Navbar';
 
 const Header: React.FC = () => {
   return (
     <header className="flex justify-between items-center px-6 py-3 bg-[#111] border-b border-[rgba(255,140,0,0.3)] relative z-10 animate-slide-down md:px-[100px]">
       
-      {/* Logo */}
-      <div className="flex items-center gap-[15px]">
+      {/* Logo - Recomendado: Envolverlo en un Link a "/" */}
+      <Link to="/" className="flex items-center gap-[15px] hover:opacity-90 transition-opacity">
         <img 
           src="logo.png" 
           alt="Logo Luxentium" 
@@ -15,19 +16,19 @@ const Header: React.FC = () => {
         <h1 className="text-white text-[24px] md:text-[30px] tracking-[3px] font-bold">
           LUX<span className="text-brand">ENTIUM</span>
         </h1>
-      </div>
+      </Link>
 
       {/* Componente Navbar */}
       <Navbar />
 
       {/* Botones Escritorio */}
       <div className="hidden md:block">
-        <a 
-          href="/contacto" 
+        <Link 
+          to="/contacto" 
           className="bg-brand px-[30px] py-[14px] rounded-lg text-white font-bold text-[18px] transition-all duration-300 hover:bg-[#ff9500] hover:scale-105 inline-block"
         >
           Contacto
-        </a>
+        </Link>
       </div>
     </header>
   );
