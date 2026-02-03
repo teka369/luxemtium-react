@@ -9,6 +9,7 @@ import Portafolio from './views/main/portafolio/Portafolio'
 import Servicios from './views/main/servicios/Servicios'
 import Contacto from './views/admin/contacto/Contacto'
 import Footer from './views/main/layouts/Footer'
+import Nosotros from './views/main/nosotros/Nosotros';
 
 
 import './css/globals.css'
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/portafolio" element={<Portafolio />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/nosotros" element={<Nosotros />} />
       </Routes>
 
       <Footer />

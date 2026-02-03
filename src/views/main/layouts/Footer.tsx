@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -10,7 +11,10 @@ const Footer: React.FC = () => {
           <h2 className="text-white text-2xl font-bold tracking-widest mb-2">
             LUX<span className="text-brand">ENTIUM</span>
           </h2>
-          <p className="text-[#666] text-sm">© 2026 Luxentium Developing.<br/>Todos los derechos reservados.</p>
+          <p className="text-[#666] text-sm">
+            © 2026 Luxentium Developing.<br />
+            Todos los derechos reservados.
+          </p>
         </div>
 
         {/* Lado Centro: Información de Contacto */}
@@ -28,20 +32,33 @@ const Footer: React.FC = () => {
           <div className="flex items-center justify-center md:justify-start gap-3">
             <span className="material-symbols-outlined text-brand text-xl">edit_note</span>
             <h2 className="text-[#ccc] text-lg font-medium">
-              Solicita tu propuesta <a href="/contacto" className="text-brand hover:underline underline-offset-4">aquí</a>
+              Solicita tu propuesta{" "}
+              <Link
+                to="/contacto"
+                className="text-brand hover:underline underline-offset-4"
+              >
+                aquí
+              </Link>
             </h2>
           </div>
         </div>
 
-        {/* Lado Derecho: Redes Sociales (Opcional pero recomendado) */}
+        {/* Lado Derecho: Redes Sociales */}
         <div className="flex gap-5">
-           <a href="#" className="w-10 h-10 rounded-full border border-[rgba(255,122,0,0.3)] flex items-center justify-center text-[#888] hover:border-brand hover:text-brand transition-all">
-             <i className="fab fa-instagram"></i>
-           </a>
-           <a href="#" className="w-10 h-10 rounded-full border border-[rgba(255,122,0,0.3)] flex items-center justify-center text-[#888] hover:border-brand hover:text-brand transition-all">
-             <i className="fab fa-linkedin-in"></i>
-           </a>
+          <a
+            href="#"
+            className="w-10 h-10 rounded-full border border-[rgba(255,122,0,0.3)] flex items-center justify-center text-[#888] hover:border-brand hover:text-brand transition-all"
+          >
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a
+            href="#"
+            className="w-10 h-10 rounded-full border border-[rgba(255,122,0,0.3)] flex items-center justify-center text-[#888] hover:border-brand hover:text-brand transition-all"
+          >
+            <i className="fab fa-linkedin-in"></i>
+          </a>
         </div>
+
       </div>
     </footer>
   );
