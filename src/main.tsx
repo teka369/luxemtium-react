@@ -10,6 +10,7 @@ import Servicios from './views/main/servicios/Servicios'
 import Contacto from './views/admin/contacto/Contacto'
 import Footer from './views/main/layouts/Footer'
 
+
 import './css/globals.css'
 
 createRoot(document.getElementById('root')!).render(
