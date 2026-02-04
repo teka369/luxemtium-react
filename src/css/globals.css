@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @theme {
   /* ===== COLORES PERSONALIZADOS ===== */
   /* Al definirlos así, Tailwind crea automáticamente clases como text-brand, bg-brand, etc. */
@@ -15,6 +14,9 @@
   --animate-float: float 5s ease-in-out infinite;
   --animate-fade-in-up: fadeInUp 0.8s ease forwards;
   --animate-slide-down: slideDown 0.8s ease-out;
+  
+  /* NUEVO: Animación para el carrusel */
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 /* ===== KEYFRAMES ===== */
@@ -62,8 +64,19 @@
   50% { transform: translateY(-20px); }
 }
 
+/* NUEVO: Keyframe para el movimiento del carrusel */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* ===== ESTILOS GLOBALES ===== */
 body {
   background-color: var(--color-brand-dark);
   font-family: Arial, Helvetica, sans-serif; /* Tu fuente original */
+}
+
+/* Clase de utilidad para pausar al hacer hover */
+.pause-animation:hover .animate-marquee {
+  animation-play-state: paused;
 }

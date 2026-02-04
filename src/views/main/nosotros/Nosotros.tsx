@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
 import { motion } from 'framer-motion';
 
@@ -153,12 +154,12 @@ const Nosotros: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-8">¿Listo para elevar tu marca?</h2>
-          <a 
-            href="/contacto" 
+          <Link 
+            to="/contacto" 
             className="px-10 py-4 bg-transparent border-2 border-brand text-brand font-bold rounded-full hover:bg-brand hover:text-black transition-all duration-300"
           >
             Hablemos de tu proyecto
-          </a>
+          </Link>
         </motion.div>
       </section>
     </main>
