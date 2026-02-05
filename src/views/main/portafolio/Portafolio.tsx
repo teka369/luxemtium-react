@@ -78,7 +78,6 @@ const Portafolio: React.FC = () => {
       { threshold: 0.5 }
     );
 
-    // Limpiamos referencias nulas antes de observar
     videoRefs.current.forEach((video) => {
       if (video) observer.observe(video);
     });
@@ -90,9 +89,10 @@ const Portafolio: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-brand-dark min-h-screen text-white font-sans overflow-x-hidden">
+    /* CAMBIO: bg-transparent para dejar pasar las partículas */
+    <div className="bg-transparent min-h-screen text-white font-sans overflow-x-hidden">
       
-      {/* ===== BARRIDO OVERLAY (SALIDA) ===== */}
+      {/* ===== BARRIDO OVERLAY (SALIDA) - Se mantiene sólido para el efecto de impacto ===== */}
       <div 
         className={`fixed inset-0 h-screen w-full bg-brand flex justify-center items-center z-[99999] transition-[left] duration-800 ease-[cubic-bezier(0.645,0.045,0.355,1)] ${
           isExiting ? 'left-full' : 'left-0'
@@ -107,14 +107,14 @@ const Portafolio: React.FC = () => {
 
       {/* ===== HERO SECTION ===== */}
       <section className="relative px-6 py-24 md:px-[100px] md:py-32 overflow-hidden">
-        {/* Fondo decorativo */}
-        <div className="absolute inset-0 opacity-10">
+        {/* Glow decorativo suave */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-20 left-10 w-96 h-96 bg-brand rounded-full blur-[150px] animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand rounded-full blur-[180px] animate-pulse" style={{animationDelay: '1s'}}></div>
         </div>
 
         <div className="max-w-[1400px] mx-auto text-center relative z-10">
-          <span className="inline-block px-5 py-2.5 bg-gradient-to-r from-brand/20 to-brand/5 border border-brand/40 rounded-full text-brand text-sm font-bold mb-8 shadow-[0_0_20px_rgba(255,140,0,0.2)] animate-fade-in-up">
+          <span className="inline-block px-5 py-2.5 bg-brand/10 backdrop-blur-md border border-brand/40 rounded-full text-brand text-sm font-bold mb-8 shadow-[0_0_20px_rgba(255,140,0,0.2)] animate-fade-in-up">
             <span className="inline-block w-2 h-2 bg-brand rounded-full mr-2 animate-pulse"></span>
             💼 Nuestro Trabajo
           </span>
@@ -129,12 +129,7 @@ const Portafolio: React.FC = () => {
                 fill="none"
                 preserveAspectRatio="none"
               >
-                <path 
-                  d="M2 6 Q 75 2, 150 6 T 298 6" 
-                  stroke="currentColor" 
-                  strokeWidth="4" 
-                  fill="none"
-                />
+                <path d="M2 6 Q 75 2, 150 6 T 298 6" stroke="currentColor" strokeWidth="4" fill="none" />
               </svg>
             </span>
           </h1>
@@ -152,39 +147,33 @@ const Portafolio: React.FC = () => {
           {proyectos.map((proyecto, index) => (
             <div 
               key={proyecto.id}
-              className="group relative bg-gradient-to-br from-brand-card to-brand-card/30 rounded-3xl overflow-hidden border border-brand/10 hover:border-brand/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_70px_rgba(255,122,0,0.25)] flex flex-col animate-fade-in-up"
+              /* CAMBIO: bg-white/[0.03] y backdrop-blur para el efecto cristal */
+              className="group relative bg-white/[0.03] backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-brand/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_70px_rgba(255,122,0,0.15)] flex flex-col animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Glow effect en hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-brand/0 via-brand/5 to-brand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
               {/* Badge de categoría */}
-              <div className="absolute top-4 left-4 z-20 px-3 py-1.5 bg-brand/90 backdrop-blur-sm rounded-full text-white text-xs font-bold shadow-lg">
+              <div className="absolute top-4 left-4 z-20 px-3 py-1.5 bg-brand/90 backdrop-blur-sm rounded-full text-white text-[10px] font-bold shadow-lg uppercase tracking-wider">
                 {proyecto.categoria}
               </div>
 
               {/* Video Container */}
-              <div className="relative overflow-hidden bg-black">
+              <div className="relative overflow-hidden bg-black/40">
                 <video 
-                  ref={(el) => { 
-                    if(el) videoRefs.current[index] = el;
-                  }}
+                  ref={(el) => { if(el) videoRefs.current[index] = el; }}
                   src={proyecto.video}
                   muted
                   loop
                   playsInline
-                  controls
-                  className="w-full aspect-video object-cover block transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                  className="w-full aspect-video object-cover block transition-transform duration-700 group-hover:scale-110 will-change-transform"
                 />
-                
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-card/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
               </div>
 
               {/* Contenido */}
               <div className="relative p-8 flex-grow flex flex-col z-10">
-                
-                {/* Título y subtítulo */}
                 <div className="mb-4">
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-brand transition-colors duration-300">
                     {proyecto.titulo}
@@ -194,7 +183,6 @@ const Portafolio: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Descripción */}
                 <p className="text-[#bbb] text-[15px] leading-relaxed mb-6 flex-grow">
                   {proyecto.descripcion}
                 </p>
@@ -204,23 +192,22 @@ const Portafolio: React.FC = () => {
                   {proyecto.tecnologias.map((tech, idx) => (
                     <span 
                       key={idx}
-                      className="px-3 py-1.5 bg-brand/10 border border-brand/30 rounded-lg text-brand text-xs font-medium hover:bg-brand/20 hover:border-brand/50 transition-all duration-300"
+                      className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-gray-300 text-xs font-medium group-hover:border-brand/30 transition-all duration-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Botones de acción */}
-                <div className="flex gap-3 flex-wrap">
+                {/* Botón de acción */}
+                <div className="flex gap-3">
                   {proyecto.url && (
                     <a 
                       href={proyecto.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn relative overflow-hidden flex-1 min-w-[140px] bg-gradient-to-r from-brand to-[#ff9500] hover:shadow-[0_0_30px_rgba(255,140,0,0.5)] text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                      className="group/btn relative overflow-hidden flex-1 bg-brand text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
                     >
-                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></span>
                       <span className="relative z-10 flex items-center gap-2">
                         Visitar Web
                         <svg className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,21 +216,14 @@ const Portafolio: React.FC = () => {
                       </span>
                     </a>
                   )}
-                  
-                  
                 </div>
-
               </div>
-
-              
             </div>
           ))}
         </div>
 
-        {/* CTA Final */}
-        <div className="mt-20 p-10 md:p-14 bg-gradient-to-r from-brand/10 via-brand/5 to-transparent rounded-3xl border-2 border-brand/30 relative overflow-hidden group hover:border-brand/50 transition-all duration-500">
-          <div className="absolute inset-0 bg-gradient-to-r from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
+        {/* CTA Final Glassmorphism */}
+        <div className="mt-20 p-10 md:p-14 bg-white/[0.03] backdrop-blur-xl rounded-3xl border-2 border-brand/20 relative overflow-hidden group">
           <div className="relative z-10 text-center">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
               ¿Tienes un proyecto en mente?
@@ -252,46 +232,26 @@ const Portafolio: React.FC = () => {
               Únete a nuestros clientes satisfechos y lleva tu negocio al siguiente nivel
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              
               <Link
                 to="/contacto"
-                className="group/btn relative overflow-hidden bg-gradient-to-r from-brand to-[#ff9500] hover:shadow-[0_0_40px_rgba(255,140,0,0.6)] text-white font-bold text-lg py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+                className="group/btn relative overflow-hidden bg-brand hover:shadow-[0_0_40px_rgba(255,140,0,0.4)] text-white font-bold text-lg py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></span>
-                <span className="relative z-10">Iniciar Proyecto</span>
-                <svg className="relative z-10 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span>Iniciar Proyecto</span>
+                <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </Link>
-              
-              <Link 
-                to="/servicios"
-                className="border-2 border-white/20 hover:border-white/40 text-white hover:bg-white/5 font-bold text-lg py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 inline-block"
-              >
-                Ver Servicios
               </Link>
             </div>
           </div>
         </div>
-
       </main>
 
-      {/* CSS Animations */}
       <style>{`
         @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-        }
+        .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
       `}</style>
     </div>
   );

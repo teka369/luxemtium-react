@@ -10,7 +10,6 @@ import {
   Heart, 
   Lock, 
   LineChart,
-  ChevronRight,
   Zap
 } from 'lucide-react';
 
@@ -133,17 +132,18 @@ const Servicios: React.FC = () => {
   ];
 
   return (
-    <main className="bg-brand-dark min-h-screen text-white overflow-hidden font-sans">
+    <main className="bg-transparent min-h-screen text-white overflow-hidden font-sans">
       
       {/* Hero Section */}
       <section className="relative px-6 py-24 md:px-[100px] md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-brand rounded-full blur-[150px] animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand rounded-full blur-[180px] animate-pulse" style={{animationDelay: '1s'}}></div>
+        {/* Luces de fondo decorativas con transparencia para no tapar partículas */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-brand/40 rounded-full blur-[150px] animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-600/30 rounded-full blur-[180px] animate-pulse" style={{animationDelay: '1s'}}></div>
         </div>
 
         <div className="max-w-[1400px] mx-auto text-center relative z-10">
-          <span className="inline-flex items-center px-5 py-2.5 bg-brand/10 border border-brand/30 rounded-full text-brand text-sm font-bold mb-8">
+          <span className="inline-flex items-center px-5 py-2.5 bg-brand/10 border border-brand/30 rounded-full text-brand text-sm font-bold mb-8 backdrop-blur-md">
             <Zap size={14} className="mr-2 fill-brand" />
             Servicios Profesionales de Alto Impacto
           </span>
@@ -153,11 +153,9 @@ const Servicios: React.FC = () => {
             <span className="text-brand">Crecer tu Negocio</span>
           </h1>
           
-          <p className="text-gray-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
             Creamos soluciones digitales potentes que eliminan la fricción técnica para que tú te enfoques en lo que mejor haces: vender.
           </p>
-
-          
         </div>
       </section>
 
@@ -165,20 +163,20 @@ const Servicios: React.FC = () => {
       <section className="px-6 py-20 md:px-[100px] relative">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {listaServicios.filter(s => !s.destacado).map((servicio, index) => (
+            {listaServicios.filter(s => !s.destacado).map((servicio) => (
               <div 
                 key={servicio.id}
-                className="group relative bg-[#151515] rounded-3xl overflow-hidden border border-white/5 hover:border-brand/40 transition-all duration-500 hover:-translate-y-3"
+                className="group relative bg-white/5 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-brand/40 transition-all duration-500 hover:-translate-y-3"
               >
-                <div className="relative h-[220px] overflow-hidden bg-[#0a0a0a]">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#151515] z-10"></div>
+                <div className="relative h-[220px] overflow-hidden bg-black/20">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 z-10"></div>
                   <img 
                     src={servicio.imagen} 
                     alt={servicio.titulo}
                     className="w-full h-full object-cover opacity-40 transition-all duration-700 group-hover:scale-110"
                   />
                   <div 
-                    className="absolute top-4 right-4 w-14 h-14 bg-black/50 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center z-20"
+                    className="absolute top-4 right-4 w-14 h-14 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center z-20"
                     style={{ color: servicio.color }}
                   >
                     {servicio.icono}
@@ -193,7 +191,7 @@ const Servicios: React.FC = () => {
                     {servicio.descripcion}
                   </p>
 
-                  <div className="space-y-3 mb-8">
+                  <div className="space-y-3">
                     {servicio.caracteristicas.map((caracteristica, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-sm text-gray-300">
                         <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: servicio.color }}></div>
@@ -201,8 +199,6 @@ const Servicios: React.FC = () => {
                       </div>
                     ))}
                   </div>
-
-                  
                 </div>
               </div>
             ))}
@@ -212,22 +208,21 @@ const Servicios: React.FC = () => {
           {listaServicios.filter(s => s.destacado).map((servicio) => (
             <div 
               key={servicio.id}
-              className="group relative bg-gradient-to-br from-brand/10 to-transparent rounded-[2.5rem] overflow-hidden border-2 border-brand/20 hover:border-brand/50 transition-all duration-500"
+              className="group relative bg-brand/5 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border-2 border-brand/20 hover:border-brand/50 transition-all duration-500"
             >
               <div className="flex flex-col md:flex-row min-h-[450px]">
-                <div className="relative md:w-[40%] w-full h-[300px] md:h-auto overflow-hidden bg-black">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#111] z-10"></div>
+                <div className="relative md:w-[40%] w-full h-[300px] md:h-auto overflow-hidden bg-black/20">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/40 z-10"></div>
                   <img 
                     src={servicio.imagen} 
                     alt={servicio.titulo}
-                    className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
                   />
-                  
                 </div>
 
                 <div className="relative md:w-[60%] p-10 md:p-16 flex flex-col justify-center z-10">
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="w-20 h-20 bg-brand/10 border border-brand/30 rounded-2xl flex items-center justify-center text-brand">
+                    <div className="w-20 h-20 bg-brand/20 backdrop-blur-md border border-brand/30 rounded-2xl flex items-center justify-center text-brand">
                       {servicio.icono}
                     </div>
                     <div>
@@ -240,17 +235,13 @@ const Servicios: React.FC = () => {
                     {servicio.descripcion}
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {servicio.caracteristicas.map((caracteristica, idx) => (
-                      <div key={idx} className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
+                      <div key={idx} className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/5">
                         <CheckBadge color={servicio.color} />
                         <span className="text-white font-medium">{caracteristica}</span>
                       </div>
                     ))}
-                  </div>
-
-                  <div className="flex gap-5 flex-wrap">
-                    
                   </div>
                 </div>
               </div>
@@ -271,7 +262,7 @@ const Servicios: React.FC = () => {
             {garantias.map((garantia, index) => (
               <div
                 key={index}
-                className="group p-10 rounded-[2rem] bg-[#111] border border-white/5 hover:border-brand/40 transition-all duration-500"
+                className="group p-10 rounded-[2rem] bg-white/5 backdrop-blur-md border border-white/5 hover:border-brand/40 transition-all duration-500 shadow-xl"
               >
                 <div className="text-brand mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
                   {garantia.icono}
@@ -284,7 +275,6 @@ const Servicios: React.FC = () => {
         </div>
       </section>
       
-      {/* Botón flotante para el Check decorativo */}
       <style>{`
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(20px); }
@@ -296,7 +286,6 @@ const Servicios: React.FC = () => {
   );
 };
 
-// Componente auxiliar para los checks
 const CheckBadge = ({color}: {color: string}) => (
   <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: `${color}20`}}>
     <div className="w-2 h-2 rounded-full" style={{backgroundColor: color}}></div>

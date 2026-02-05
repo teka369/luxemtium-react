@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 
 const Nosotros: React.FC = () => {
   return (
-    <main className="bg-brand-dark min-h-screen text-white pt-24 overflow-x-hidden">
+    /* CAMBIO: Eliminamos bg-brand-dark y usamos bg-transparent */
+    <main className="bg-transparent min-h-screen text-white pt-24 overflow-x-hidden">
       
-      {/* ===== 1. HERO: LA ESENCIA ===== */}
+      {/* ===== 1. HERO ===== */}
       <section className="px-6 md:px-[100px] mb-32">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center gap-16">
           <motion.div 
@@ -23,10 +24,9 @@ const Nosotros: React.FC = () => {
               Diseñamos el <br />
               <span className="text-brand italic">Futuro Digital</span>.
             </h1>
-            <p className="text-[#888] text-xl leading-relaxed">
+            <p className="text-[#ccc] text-xl leading-relaxed"> {/* CAMBIO: Texto un poco más claro para legibilidad */}
               ¿Tu negocio aún no tiene página web o la que tienes no genera clientes?
               En Luxentium creamos sitios web modernos, rápidos y optimizados para convertir visitas en ventas. 
-              Dale a tu marca la presencia profesional que necesita para crecer en internet.
             </p>
           </motion.div>
 
@@ -41,23 +41,24 @@ const Nosotros: React.FC = () => {
               src="3.png" 
               alt="Luxentium Studio" 
               className="relative rounded-2xl border border-white/10 transition-all duration-700 group-hover:scale-[1.02]"
-              /* Eliminado grayscale para que siempre sea a color */
             />
           </motion.div>
         </div>
       </section>
 
       {/* ===== 2. MISIÓN & VISIÓN ===== */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border-y border-white/5">
+      {/* CAMBIO: bg-white/5 para que sea un traslúcido elegante */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border-y border-white/5">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-brand-dark p-12 md:p-24 space-y-6"
+          /* CAMBIO: Quitamos bg-brand-dark y usamos un fondo con opacidad */
+          className="bg-black/20 backdrop-blur-sm p-12 md:p-24 space-y-6"
         >
           <span className="material-symbols-outlined text-brand text-5xl">rocket_launch</span>
           <h2 className="text-3xl font-bold">Nuestra Misión</h2>
-          <p className="text-[#888] text-lg leading-relaxed">
+          <p className="text-[#bbb] text-lg leading-relaxed">
             Democratizar el acceso a software de alta gama. Dotamos a emprendedores 
             de herramientas digitales que antes solo estaban al alcance de corporaciones.
           </p>
@@ -67,11 +68,12 @@ const Nosotros: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="bg-brand-dark p-12 md:p-24 space-y-6"
+          /* CAMBIO: Quitamos bg-brand-dark y usamos un fondo con opacidad */
+          className="bg-black/40 backdrop-blur-sm p-12 md:p-24 space-y-6"
         >
           <span className="material-symbols-outlined text-brand text-5xl">visibility</span>
           <h2 className="text-3xl font-bold">Nuestra Visión</h2>
-          <p className="text-[#888] text-lg leading-relaxed">
+          <p className="text-[#bbb] text-lg leading-relaxed">
             Para el 2028, Luxentium será el referente principal en desarrollo de experiencias 
             digitales premium, rompiendo la barrera entre funcionalidad y arte.
           </p>
@@ -97,18 +99,20 @@ const Nosotros: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="space-y-4 p-6 border border-white/5 rounded-xl hover:bg-white/5 transition-colors"
+                /* CAMBIO: bg-white/5 para dejar ver el fondo de partículas */
+                className="space-y-4 p-6 border border-white/10 rounded-xl bg-white/5 hover:bg-brand/10 transition-colors"
               >
                 <h3 className="text-brand font-mono text-lg">{item.num} / {item.tit}</h3>
-                <p className="text-[#666]">{item.desc}</p>
+                <p className="text-[#aaa]">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== 4. MANIFIESTO: EFECTO ESCRIBIR/BORRAR ===== */}
-      <section className="bg-brand py-24 px-6 md:px-[100px] text-[#0f0f0f] min-h-[400px] flex items-center">
+      {/* ===== 4. MANIFIESTO (El bloque naranja) ===== */}
+      {/* CAMBIO: bg-brand/90 para que sea un naranja intenso pero con un pelín de transparencia */}
+      <section className="bg-brand/90 backdrop-blur-md py-24 px-6 md:px-[100px] text-[#0f0f0f] min-h-[400px] flex items-center shadow-[0_0_50px_rgba(249,115,22,0.3)]">
         <div className="max-w-[1000px] mx-auto text-center space-y-12">
           <div className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight min-h-[150px] md:min-h-[120px]">
             <Typewriter
@@ -131,6 +135,7 @@ const Nosotros: React.FC = () => {
               <p className="font-bold text-3xl">03</p>
               <p className="text-xs uppercase font-bold opacity-80">Especialistas</p>
             </div>
+            {/* ... resto de stats igual ... */}
             <div>
               <p className="font-bold text-3xl">100%</p>
               <p className="text-xs uppercase font-bold opacity-80">Potencial</p>
@@ -148,15 +153,15 @@ const Nosotros: React.FC = () => {
       </section>
 
       {/* ===== 5. CTA FINAL ===== */}
-      <section className="py-32 text-center">
+      <section className="py-32 text-center bg-transparent">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">¿Listo para elevar tu marca?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">¿Listo para elevar tu marca?</h2>
           <Link 
             to="/contacto" 
-            className="px-10 py-4 bg-transparent border-2 border-brand text-brand font-bold rounded-full hover:bg-brand hover:text-black transition-all duration-300"
+            className="px-10 py-4 bg-transparent border-2 border-brand text-brand font-bold rounded-full hover:bg-brand hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.2)]"
           >
             Hablemos de tu proyecto
           </Link>

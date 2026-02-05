@@ -4,14 +4,11 @@ import {
   Globe, 
   TrendingUp, 
   Gem, 
-  Rocket, 
-  Phone, 
+  Rocket,  
   Mail, 
   Clock, 
   Send, 
-  CheckCircle2, 
-  Lightbulb,
-  Zap,
+  CheckCircle2,
   Target
 } from 'lucide-react';
 
@@ -75,17 +72,19 @@ const Contacto: React.FC = () => {
   ];
 
   return (
-    <div className="bg-brand-dark min-h-screen text-white overflow-hidden selection:bg-brand/30">
+    /* CAMBIO: bg-transparent para ver el fondo de partículas */
+    <div className="bg-transparent min-h-screen text-white overflow-hidden selection:bg-brand/30">
       
       {/* Hero Section */}
       <section className="relative px-6 py-24 md:px-[100px] md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        {/* Luces decorativas simplificadas para no tapar partículas */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-20 left-10 w-96 h-96 bg-brand rounded-full blur-[150px] animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand rounded-full blur-[180px] animate-pulse" style={{animationDelay: '1s'}}></div>
         </div>
 
         <div className="max-w-[1400px] mx-auto text-center relative z-10">
-          <span className="inline-flex items-center px-5 py-2.5 bg-brand/10 border border-brand/30 rounded-full text-brand text-sm font-bold mb-8 animate-fade-in-up">
+          <span className="inline-flex items-center px-5 py-2.5 bg-brand/10 backdrop-blur-md border border-brand/30 rounded-full text-brand text-sm font-bold mb-8 animate-fade-in-up">
             <Mail size={16} className="mr-2" />
             Hablemos de tu Proyecto
           </span>
@@ -110,8 +109,8 @@ const Contacto: React.FC = () => {
       <section className="px-6 py-16 md:px-[100px]">
         <div className="max-w-[1400px] mx-auto">
           
-          {/* Mensaje motivacional con el icono de foco/dedicación */}
-          <div className="mb-16 p-8 md:p-12 bg-gradient-to-br from-brand/15 via-brand/5 to-transparent rounded-3xl border border-brand/20 relative overflow-hidden group">
+          {/* Tarjeta Motivacional - Ahora con backdrop-blur */}
+          <div className="mb-16 p-8 md:p-12 bg-white/[0.03] backdrop-blur-md rounded-3xl border border-brand/20 relative overflow-hidden group">
             <div className="relative z-10 text-center">
               <div className="inline-flex p-5 bg-brand/20 rounded-2xl mb-6 text-brand">
                 <Target size={48} strokeWidth={1.5} className="animate-pulse" />
@@ -127,12 +126,12 @@ const Contacto: React.FC = () => {
             </div>
           </div>
 
-          {/* Grid de Beneficios */}
+          {/* Grid de Beneficios - Tarjetas transparentes */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {beneficios.map((beneficio, index) => (
               <div
                 key={index}
-                className="group bg-[#151515] p-8 rounded-2xl border border-white/5 hover:border-brand/40 transition-all duration-500 hover:-translate-y-2 text-center"
+                className="group bg-white/[0.02] backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-brand/40 transition-all duration-500 hover:-translate-y-2 text-center"
               >
                 <div className="mb-6 flex justify-center group-hover:scale-110 transition-transform duration-500">
                   {beneficio.icono}
@@ -167,9 +166,7 @@ const Contacto: React.FC = () => {
               </div>
 
               <div className="space-y-5">
-                
-
-                <Link to="mailto:luxentium1@gmail.com" className="group flex items-center gap-5 p-5 bg-white/5 border border-white/5 rounded-2xl hover:border-brand/40 transition-all duration-300">
+                <Link to="mailto:luxentium1@gmail.com" className="group flex items-center gap-5 p-5 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl hover:border-brand/40 transition-all duration-300">
                   <div className="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center text-brand group-hover:scale-110 transition-transform">
                     <Mail size={24} strokeWidth={2} />
                   </div>
@@ -179,7 +176,7 @@ const Contacto: React.FC = () => {
                   </div>
                 </Link>
 
-                <div className="flex items-center gap-5 p-5 bg-white/5 border border-white/5 rounded-2xl">
+                <div className="flex items-center gap-5 p-5 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl">
                   <div className="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center text-brand">
                     <Clock size={24} strokeWidth={2} />
                   </div>
@@ -191,7 +188,7 @@ const Contacto: React.FC = () => {
               </div>
 
               {/* Stats Rápidas */}
-              <div className="grid grid-cols-3 gap-6 p-8 bg-gradient-to-br from-brand/10 to-transparent rounded-3xl border border-brand/20">
+              <div className="grid grid-cols-3 gap-6 p-8 bg-brand/10 backdrop-blur-md rounded-3xl border border-brand/20">
                 <div className="text-center">
                   <div className="text-3xl font-black text-white mb-1">&lt;24h</div>
                   <div className="text-[10px] text-brand font-bold uppercase tracking-tighter">Respuesta</div>
@@ -207,10 +204,10 @@ const Contacto: React.FC = () => {
               </div>
             </div>
 
-            {/* Formulario */}
+            {/* Formulario Glassmorphism */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-brand/20 rounded-[2rem] blur-3xl opacity-30"></div>
-              <div className="relative bg-[#111] p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl">
+              <div className="absolute -inset-4 bg-brand/20 rounded-[2rem] blur-3xl opacity-20"></div>
+              <div className="relative bg-white/[0.03] backdrop-blur-xl p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl">
                 
                 {!isSubmitted ? (
                   <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
@@ -225,28 +222,28 @@ const Contacto: React.FC = () => {
                         type="text"
                         placeholder="Nombre Completo"
                         required
-                        className="w-full p-4 bg-brand-dark border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all"
+                        className="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all"
                       />
                       <input
                         name="user_email"
                         type="email"
                         placeholder="Tu Correo Electrónico"
                         required
-                        className="w-full p-4 bg-brand-dark border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all"
+                        className="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all"
                       />
                       <input
                         name="user_tel"
                         type="tel"
                         placeholder="Número Telefónico (WhatsApp)"
                         required
-                        className="w-full p-4 bg-brand-dark border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all"
+                        className="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all"
                       />
                       <textarea
                         name="message"
                         rows={4}
                         placeholder="Cuéntanos brevemente sobre tu proyecto..."
                         required
-                        className="w-full p-4 bg-brand-dark border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all resize-none"
+                        className="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all resize-none"
                       />
                     </div>
 
