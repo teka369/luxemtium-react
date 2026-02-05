@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Zap, Palette, ShieldCheck } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Zap, Palette } from 'lucide-react';
 
 const Codigo = () => {
   const [index, setIndex] = useState(0);
