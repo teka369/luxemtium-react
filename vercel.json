@@ -1,14 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "https://luxentium.top/:path*",
-      "destination": "https://www.luxentium.top/:path*",
-      "permanent": true
-    }
-  ]
-}
-
-{
   "rewrites": [
     { "source":"/(.*)", "destination": "/"}
   ]
