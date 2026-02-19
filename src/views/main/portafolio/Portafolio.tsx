@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface Proyecto {
   id: number;
-  video: string;
+  imagen: string;
   titulo: string;
   subtitulo: string;
   descripcion: string;
@@ -14,77 +14,57 @@ interface Proyecto {
 
 const Portafolio: React.FC = () => {
   const [isExiting, setIsExiting] = useState(false);
-  const videoRefs = useRef<HTMLVideoElement[]>([]);
 
   const proyectos: Proyecto[] = [
     {
       id: 1,
-      video: 'portafolio/1.mp4',
-      titulo: 'Desarrollo E-commerce',
-      subtitulo: 'Web de alto rendimiento',
-      descripcion: 'Plataforma completa de comercio electrónico con carrito de compras, pasarela de pagos y panel administrativo.',
-      tecnologias: ['React', 'Node.js', 'Stripe'],
-      url: 'https://ejemplo-ecommerce.com',
-      categoria: 'E-commerce'
+      imagen: 'portafolio/abogados.png',
+      titulo: 'Estudio Jurídico Digital',
+      subtitulo: 'Presencia online profesional',
+      descripcion: 'Sitio web para estudio jurídico con foco en confianza, claridad de servicios y captación de clientes.',
+      tecnologias: ['React', 'TypeScript', 'TailwindCSS'],
+      url: undefined,
+      categoria: 'Servicios profesionales'
     },
     {
       id: 2,
-      video: 'portafolio/2.mp4',
-      titulo: 'Plataforma Digital',
-      subtitulo: 'Experiencia de usuario premium',
-      descripcion: 'Sistema web empresarial con dashboard interactivo y gestión de usuarios en tiempo real.',
-      tecnologias: ['TypeScript', 'PostgreSQL', 'TailwindCSS'],
-      url: 'https://ejemplo-plataforma.com',
-      categoria: 'SaaS'
+      imagen: 'portafolio/dusklight.png',
+      titulo: 'Landing Page Creativa',
+      subtitulo: 'Marca moderna y dinámica',
+      descripcion: 'Landing page visualmente llamativa orientada a conversión y captación de leads.',
+      tecnologias: ['React', 'Framer Motion', 'TailwindCSS'],
+      url: undefined,
+      categoria: 'Landing Page'
     },
     {
       id: 3,
-      video: 'portafolio/3.mp4',
-      titulo: 'Diseño UX/UI',
-      subtitulo: 'Interfaces modernas y fluidas',
-      descripcion: 'Rediseño completo de interfaz con enfoque en conversión y experiencia de usuario optimizada.',
-      tecnologias: ['Figma', 'React', 'Framer Motion'],
-      url: 'https://ejemplo-design.com',
-      categoria: 'Diseño'
+      imagen: 'portafolio/provedor.png',
+      titulo: 'Plataforma de Proveedores',
+      subtitulo: 'Gestión y catálogo digital',
+      descripcion: 'Interfaz clara para mostrar catálogo de servicios y contacto directo con proveedores.',
+      tecnologias: ['React', 'API REST', 'UI personalizada'],
+      url: undefined,
+      categoria: 'Plataforma B2B'
     },
     {
       id: 4,
-      video: 'portafolio/4.mp4',
-      titulo: 'Web E-commerce',
-      subtitulo: 'Tienda online moderna',
-      descripcion: 'Sitio de ventas online con integración de inventario y múltiples métodos de pago.',
-      tecnologias: ['Next.js', 'Shopify', 'PayPal'],
-      url: 'https://ejemplo-tienda.com',
-      categoria: 'E-commerce'
+      imagen: 'portafolio/sunny.png',
+      titulo: 'Marca Digital Sunny',
+      subtitulo: 'Identidad cálida y cercana',
+      descripcion: 'Sitio web vibrante para marca digital con enfoque en storytelling visual.',
+      tecnologias: ['React', 'CSS modular', 'Animaciones'],
+      url: undefined,
+      categoria: 'Branding'
     },
   ];
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       setIsExiting(true);
     }, 50);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target as HTMLVideoElement;
-          if (entry.isIntersecting) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    videoRefs.current.forEach((video) => {
-      if (video) observer.observe(video);
-    });
-
     return () => {
       clearTimeout(timer);
-      observer.disconnect();
     };
   }, []);
 
@@ -161,12 +141,9 @@ const Portafolio: React.FC = () => {
 
               {/* Video Container */}
               <div className="relative overflow-hidden bg-black/40">
-                <video 
-                  ref={(el) => { if(el) videoRefs.current[index] = el; }}
-                  src={proyecto.video}
-                  muted
-                  loop
-                  playsInline
+                <img 
+                  src={proyecto.imagen}
+                  alt={proyecto.titulo}
                   className="w-full aspect-video object-cover block transition-transform duration-700 group-hover:scale-110 will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
