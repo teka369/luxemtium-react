@@ -142,7 +142,7 @@ const Portafolio: React.FC = () => {
               {/* Video Container */}
               <div className="relative overflow-hidden bg-black/40">
                 <img 
-                  src={proyecto.imagen}
+                  src={proyecto.imagen.startsWith('/') ? proyecto.imagen : `/${proyecto.imagen}`}
                   alt={proyecto.titulo}
                   className="w-full aspect-video object-cover block transition-transform duration-700 group-hover:scale-110 will-change-transform"
                 />
