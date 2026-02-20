@@ -18,7 +18,7 @@ const Portafolio: React.FC = () => {
   const proyectos: Proyecto[] = [
     {
       id: 1,
-      imagen: 'portafolio/abogados.png',
+      imagen: 'public/portafolio/abogados.png',
       titulo: 'Estudio Jurídico Digital',
       subtitulo: 'Presencia online profesional',
       descripcion: 'Sitio web para estudio jurídico con foco en confianza, claridad de servicios y captación de clientes.',
@@ -28,7 +28,7 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 2,
-      imagen: 'portafolio/dusklight.png',
+      imagen: 'public/portafolio/dusklight.png',
       titulo: 'Landing Page Creativa',
       subtitulo: 'Marca moderna y dinámica',
       descripcion: 'Landing page visualmente llamativa orientada a conversión y captación de leads.',
@@ -38,7 +38,7 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 3,
-      imagen: 'portafolio/provedor.png',
+      imagen: 'public/portafolio/provedor.png',
       titulo: 'Plataforma de Proveedores',
       subtitulo: 'Gestión y catálogo digital',
       descripcion: 'Interfaz clara para mostrar catálogo de servicios y contacto directo con proveedores.',
@@ -48,7 +48,7 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 4,
-      imagen: 'portafolio/sunny.png',
+      imagen: 'public/portafolio/sunny.png',
       titulo: 'Marca Digital Sunny',
       subtitulo: 'Identidad cálida y cercana',
       descripcion: 'Sitio web vibrante para marca digital con enfoque en storytelling visual.',
