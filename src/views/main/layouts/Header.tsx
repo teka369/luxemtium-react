@@ -10,7 +10,7 @@ const Header: React.FC = () => {
         px-6 py-4 md:px-[100px]
         bg-gradient-to-b from-[#111] to-[#0a0a0a]
         border-b border-[rgba(255,140,0,0.3)]
-        relative z-10
+        relative z-[999]
         animate-slide-down
         shadow-[0_4px_20px_rgba(255,140,0,0.1)]
       "
