@@ -18,7 +18,7 @@ const Portafolio: React.FC = () => {
   const proyectos: Proyecto[] = [
     {
       id: 1,
-      imagen: 'public/portafolio/abogados.png',
+      imagen: '/portafolio/abogados.png',
       titulo: 'Estudio Jurídico Digital',
       subtitulo: 'Presencia online profesional',
       descripcion: 'Sitio web para estudio jurídico con foco en confianza, claridad de servicios y captación de clientes.',
@@ -28,33 +28,43 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 2,
-      imagen: 'public/portafolio/dusklight.png',
+      imagen: '/portafolio/dusklight.png',
       titulo: 'Landing Page Creativa',
       subtitulo: 'Marca moderna y dinámica',
       descripcion: 'Landing page visualmente llamativa orientada a conversión y captación de leads.',
       tecnologias: ['React', 'Framer Motion', 'TailwindCSS'],
-      url: undefined,
+      url: 'https://dusklight.pro/',
       categoria: 'Landing Page'
     },
     {
       id: 3,
-      imagen: 'public/portafolio/provedor.png',
+      imagen: '/portafolio/provedor.png',
       titulo: 'Plataforma de Proveedores',
       subtitulo: 'Gestión y catálogo digital',
       descripcion: 'Interfaz clara para mostrar catálogo de servicios y contacto directo con proveedores.',
       tecnologias: ['React', 'API REST', 'UI personalizada'],
-      url: undefined,
+      url: 'https://samuel-arias-py.github.io/bebidas_d1_provedor-/provedor/',
       categoria: 'Plataforma B2B'
     },
     {
       id: 4,
-      imagen: 'public/portafolio/sunny.png',
+      imagen: '/portafolio/sunny.png',
       titulo: 'Marca Digital Sunny',
       subtitulo: 'Identidad cálida y cercana',
       descripcion: 'Sitio web vibrante para marca digital con enfoque en storytelling visual.',
       tecnologias: ['React', 'CSS modular', 'Animaciones'],
-      url: undefined,
+      url: 'https://www.sunnypartyrentalsllc.com/',
       categoria: 'Branding'
+    },
+    {
+      id: 5,
+      imagen: '/portafolio/backend.png',
+      titulo: 'Desarrollo Backend & Admin',
+      subtitulo: 'Sistemas robustos y escalables',
+      descripcion: 'Arquitectura de servidores y paneles de administración para gestión de datos eficiente.',
+      tecnologias: ['Node.js', 'Express', 'JWT', 'PostgreSQL'],
+      url: 'https://portafolio-roan-nine.vercel.app/#hero',
+      categoria: 'Sistemas Core'
     },
   ];
 
@@ -71,12 +81,11 @@ const Portafolio: React.FC = () => {
   return (
     /* CAMBIO: bg-transparent para dejar pasar las partículas */
     <div className="bg-transparent min-h-screen text-white font-sans overflow-x-hidden">
-      
+
       {/* ===== BARRIDO OVERLAY (SALIDA) - Se mantiene sólido para el efecto de impacto ===== */}
-      <div 
-        className={`fixed inset-0 h-screen w-full bg-brand flex justify-center items-center z-[99999] transition-[left] duration-800 ease-[cubic-bezier(0.645,0.045,0.355,1)] ${
-          isExiting ? 'left-full' : 'left-0'
-        }`}
+      <div
+        className={`fixed inset-0 h-screen w-full bg-brand flex justify-center items-center z-[99999] transition-[left] duration-800 ease-[cubic-bezier(0.645,0.045,0.355,1)] ${isExiting ? 'left-full' : 'left-0'
+          }`}
       >
         <div className={`text-center transition-all duration-400 ${isExiting ? 'opacity-0 scale-90' : 'opacity-100 scale-100'}`}>
           <h1 className="text-5xl md:text-[5rem] font-bold tracking-[15px] text-white">
@@ -90,7 +99,7 @@ const Portafolio: React.FC = () => {
         {/* Glow decorativo suave */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-20 left-10 w-96 h-96 bg-brand rounded-full blur-[150px] animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand rounded-full blur-[180px] animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand rounded-full blur-[180px] animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="max-w-[1400px] mx-auto text-center relative z-10">
@@ -98,14 +107,14 @@ const Portafolio: React.FC = () => {
             <span className="inline-block w-2 h-2 bg-brand rounded-full mr-2 animate-pulse"></span>
             💼 Nuestro Trabajo
           </span>
-          
-          <h1 className="text-5xl md:text-[65px] font-extrabold mb-6 leading-tight animate-fade-in-up" style={{animationDelay: '100ms'}}>
+
+          <h1 className="text-5xl md:text-[65px] font-extrabold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             Portafolio{' '}
             <span className="relative inline-block">
               <span className="text-brand relative z-10">Premium</span>
-              <svg 
-                className="absolute -bottom-2 left-0 w-full text-brand/50" 
-                viewBox="0 0 300 12" 
+              <svg
+                className="absolute -bottom-2 left-0 w-full text-brand/50"
+                viewBox="0 0 300 12"
                 fill="none"
                 preserveAspectRatio="none"
               >
@@ -113,8 +122,8 @@ const Portafolio: React.FC = () => {
               </svg>
             </span>
           </h1>
-          
-          <p className="text-[#aaa] text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{animationDelay: '200ms'}}>
+
+          <p className="text-[#aaa] text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             Proyectos que transforman ideas en experiencias digitales excepcionales
           </p>
         </div>
@@ -122,10 +131,10 @@ const Portafolio: React.FC = () => {
 
       {/* ===== GRID DE PROYECTOS ===== */}
       <main className="max-w-[1600px] mx-auto px-6 pb-24 md:px-[100px]">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {proyectos.map((proyecto, index) => (
-            <div 
+            <div
               key={proyecto.id}
               /* CAMBIO: bg-white/[0.03] y backdrop-blur para el efecto cristal */
               className="group relative bg-white/[0.03] backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-brand/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_70px_rgba(255,122,0,0.15)] flex flex-col animate-fade-in-up"
@@ -141,7 +150,7 @@ const Portafolio: React.FC = () => {
 
               {/* Video Container */}
               <div className="relative overflow-hidden bg-black/40">
-                <img 
+                <img
                   src={proyecto.imagen}
                   alt={proyecto.titulo}
                   className="w-full aspect-video object-cover block transition-transform duration-700 group-hover:scale-110 will-change-transform"
@@ -167,7 +176,7 @@ const Portafolio: React.FC = () => {
                 {/* Tecnologías */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {proyecto.tecnologias.map((tech, idx) => (
-                    <span 
+                    <span
                       key={idx}
                       className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-gray-300 text-xs font-medium group-hover:border-brand/30 transition-all duration-300"
                     >
@@ -179,7 +188,7 @@ const Portafolio: React.FC = () => {
                 {/* Botón de acción */}
                 <div className="flex gap-3">
                   {proyecto.url && (
-                    <a 
+                    <a
                       href={proyecto.url}
                       target="_blank"
                       rel="noopener noreferrer"
