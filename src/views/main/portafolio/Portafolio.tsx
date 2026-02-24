@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import imgAbogados from '../assets/portafolio/abogados.png';
-import imgDusklight from '../assets/portafolio/dusklight.png';
-import imgProvedor from '../assets/portafolio/provedor.png';
-import imgSunny from '../assets/portafolio/sunny.png';
-import imgBackend from '../assets/portafolio/backend.png';
+import imgAbogados from '../../../assets/portafolio/abogados.png';
+import imgDusklight from '../../../assets/portafolio/dusklight.png';
+import imgProvedor from '../../../assets/portafolio/provedor.png';
+import imgSunny from '../../../assets/portafolio/sunny.png';
+import imgBackend from '../../../assets/portafolio/backend.png';
 
 interface Proyecto {
   id: number;
