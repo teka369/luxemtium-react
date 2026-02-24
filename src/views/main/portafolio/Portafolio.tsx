@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import imgAbogados from '../../../portfolio-images/abogados.png';
-import imgDusklight from '../../../portfolio-images/dusklight.png';
-import imgProvedor from '../../../portfolio-images/provedor.png';
-import imgSunny from '../../../portfolio-images/sunny.png';
-import imgBackend from '../../../portfolio-images/backend.png';
+import imgAbogados from '../assets/portafolio/abogados.png';
+import imgDusklight from '../assets/portafolio/dusklight.png';
+import imgProvedor from '../assets/portafolio/provedor.png';
+import imgSunny from '../assets/portafolio/sunny.png';
+import imgBackend from '../assets/portafolio/backend.png';
 
 interface Proyecto {
   id: number;
@@ -84,10 +84,9 @@ const Portafolio: React.FC = () => {
   }, []);
 
   return (
-    /* CAMBIO: bg-transparent para dejar pasar las partículas */
     <div className="bg-transparent min-h-screen text-white font-sans overflow-x-hidden">
 
-      {/* ===== BARRIDO OVERLAY (SALIDA) - Se mantiene sólido para el efecto de impacto ===== */}
+      {/* ===== BARRIDO OVERLAY (SALIDA) ===== */}
       <div
         className={`fixed inset-0 h-screen w-full bg-brand flex justify-center items-center z-[99999] transition-[left] duration-800 ease-[cubic-bezier(0.645,0.045,0.355,1)] ${isExiting ? 'left-full' : 'left-0'
           }`}
@@ -101,7 +100,6 @@ const Portafolio: React.FC = () => {
 
       {/* ===== HERO SECTION ===== */}
       <section className="relative px-6 py-24 md:px-[100px] md:py-32 overflow-hidden">
-        {/* Glow decorativo suave */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-20 left-10 w-96 h-96 bg-brand rounded-full blur-[150px] animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand rounded-full blur-[180px] animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -141,7 +139,6 @@ const Portafolio: React.FC = () => {
           {proyectos.map((proyecto, index) => (
             <div
               key={proyecto.id}
-              /* CAMBIO: bg-white/[0.03] y backdrop-blur para el efecto cristal */
               className="group relative bg-white/[0.03] backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-brand/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_70px_rgba(255,122,0,0.15)] flex flex-col animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -153,7 +150,7 @@ const Portafolio: React.FC = () => {
                 {proyecto.categoria}
               </div>
 
-              {/* Video Container */}
+              {/* Image Container */}
               <div className="relative overflow-hidden bg-black/40">
                 <img
                   src={proyecto.imagen}
