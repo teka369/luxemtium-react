@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import imgAbogados from '@/assets/portafolio/abogados.png';
+import imgDusklight from '@/assets/portafolio/dusklight.png';
+import imgProvedor from '@/assets/portafolio/provedor.png';
+import imgSunny from '@/assets/portafolio/sunny.png';
+import imgBackend from '@/assets/portafolio/backend.png';
 
 interface Proyecto {
   id: number;
@@ -18,7 +23,7 @@ const Portafolio: React.FC = () => {
   const proyectos: Proyecto[] = [
     {
       id: 1,
-      imagen: 'portafolio/abogados.png',
+      imagen: imgAbogados,
       titulo: 'Estudio Jurídico Digital',
       subtitulo: 'Presencia online profesional',
       descripcion: 'Sitio web para estudio jurídico con foco en confianza, claridad de servicios y captación de clientes.',
@@ -28,7 +33,7 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 2,
-      imagen: 'portafolio/dusklight.png',
+      imagen: imgDusklight,
       titulo: 'Landing Page Creativa',
       subtitulo: 'Marca moderna y dinámica',
       descripcion: 'Landing page visualmente llamativa orientada a conversión y captación de leads.',
@@ -38,7 +43,7 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 3,
-      imagen: 'portafolio/provedor.png',
+      imagen: imgProvedor,
       titulo: 'Plataforma de Proveedores',
       subtitulo: 'Gestión y catálogo digital',
       descripcion: 'Interfaz clara para mostrar catálogo de servicios y contacto directo con proveedores.',
@@ -48,7 +53,7 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 4,
-      imagen: 'portafolio/sunny.png',
+      imagen: imgSunny,
       titulo: 'Marca Digital Sunny',
       subtitulo: 'Identidad cálida y cercana',
       descripcion: 'Sitio web vibrante para marca digital con enfoque en storytelling visual.',
@@ -58,7 +63,7 @@ const Portafolio: React.FC = () => {
     },
     {
       id: 5,
-      imagen: 'portafolio/backend.png',
+      imagen: imgBackend,
       titulo: 'Desarrollo Backend & Admin',
       subtitulo: 'Sistemas robustos y escalables',
       descripcion: 'Arquitectura de servidores y paneles de administración para gestión de datos eficiente.',
@@ -151,7 +156,7 @@ const Portafolio: React.FC = () => {
               {/* Video Container */}
               <div className="relative overflow-hidden bg-black/40">
                 <img
-                  src={`${import.meta.env.BASE_URL}${proyecto.imagen}`}
+                  src={proyecto.imagen}
                   alt={proyecto.titulo}
                   className="w-full aspect-video object-cover block transition-transform duration-700 group-hover:scale-110 will-change-transform"
                 />
