@@ -26,6 +26,7 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Inicio', href: '/', icon: '🏠' },
+    { name: 'Tu SaaS', href: '/tu-saas', icon: '🚀' },
     { name: 'Nosotros', href: '/nosotros', icon: '👥' },
     { name: 'Servicios', href: '/servicios', icon: '⚡' },
     { name: 'Proyectos', href: '/portafolio', icon: '💼' },

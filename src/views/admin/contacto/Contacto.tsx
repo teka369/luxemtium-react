@@ -166,13 +166,13 @@ const Contacto: React.FC = () => {
               </div>
 
               <div className="space-y-5">
-                <Link to="mailto:luxentium1@gmail.com" className="group flex items-center gap-5 p-5 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl hover:border-brand/40 transition-all duration-300">
+                <Link to="mailto:samuel@luxentium.top" className="group flex items-center gap-5 p-5 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl hover:border-brand/40 transition-all duration-300">
                   <div className="w-14 h-14 bg-brand/10 rounded-xl flex items-center justify-center text-brand group-hover:scale-110 transition-transform">
                     <Mail size={24} strokeWidth={2} />
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">Escríbenos</p>
-                    <p className="text-white font-bold text-lg">luxentium1@gmail.com</p>
+                    <p className="text-white font-bold text-lg">samuel@luxentium.top</p>
                   </div>
                 </Link>
 

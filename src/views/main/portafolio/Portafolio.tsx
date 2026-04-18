@@ -5,6 +5,7 @@ import imgDusklight from '../../../assets/portafolio/dusklight.png';
 import imgProvedor from '../../../assets/portafolio/provedor.png';
 import imgSunny from '../../../assets/portafolio/sunny.png';
 import imgBackend from '../../../assets/portafolio/backend.png';
+import imgRec from '../../../assets/portafolio/rec.png';
 
 interface Proyecto {
   id: number;
@@ -21,6 +22,16 @@ const Portafolio: React.FC = () => {
   const [isExiting, setIsExiting] = useState(false);
 
   const proyectos: Proyecto[] = [
+    {
+      id: 6,
+      imagen: imgRec,
+      titulo: 'Recedu',
+      subtitulo: 'SaaS de Gestión Académica',
+      descripcion: 'Plataforma líder en gestión académica para colegios en Colombia. Centraliza notas, horarios y materiales en una experiencia digital intuitiva.',
+      tecnologias: ['React', 'Node.js', 'PostgreSQL', 'TailwindCSS'],
+      url: 'https://recedu.co',
+      categoria: 'SaaS Educativo'
+    },
     {
       id: 1,
       imagen: imgAbogados,

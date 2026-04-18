@@ -9,12 +9,14 @@ import Index from './views/main/home/Index'
 import Portafolio from './views/main/portafolio/Portafolio'
 import Servicios from './views/main/servicios/Servicios'
 import Contacto from './views/admin/contacto/Contacto'
+import TuSaaS from './views/main/saas/TuSaaS'
 import Footer from './views/main/layouts/Footer'
 import Nosotros from './views/main/nosotros/Nosotros';
 import './css/globals.css'
 
 // 1. IMPORTA EL FONDO (Asegúrate de que la ruta sea correcta)
 import ParticlesBackground from './components/ParticlesBackground'; // <--- NUEVO
+import ScrollToTop from './components/ScrollToTop';
 
 ReactGA.initialize('G-LFEKT6RDBM');
 
@@ -33,6 +35,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <AnalyticsTracker />
+      <ScrollToTop />
       
       {/* 2. PON EL FONDO AQUÍ */}
       {/* Al estar fuera del div de contenido y tener 'fixed', se queda quieto siempre */}
@@ -52,6 +55,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/tu-saas" element={<TuSaaS />} />
           </Routes>
         </div>
 

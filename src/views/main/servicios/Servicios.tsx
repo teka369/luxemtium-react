@@ -10,6 +10,7 @@ import {
   Heart, 
   Lock, 
   LineChart,
+  Bot,
   Zap
 } from 'lucide-react';
 
@@ -88,6 +89,21 @@ const Servicios: React.FC = () => {
         'Conexión de Aplicaciones',
         'Cero Errores Humanos',
         'Control Total del Flujo'
+      ]
+    },
+    {
+      id: 5,
+      titulo: 'Agentes de IA Personalizados',
+      descripcion: 'Inteligencia Artificial que entiende tu negocio. Creamos agentes autónomos que gestionan clientes, analizan datos y optimizan tu operación sin intervención humana.',
+      imagen: 'ai-agents.png',
+      icono: <Bot size={40} strokeWidth={1.5} />,
+      color: "#8B5CF6",
+      destacado: true,
+      caracteristicas: [
+        'Atención 24/7 Inteligente',
+        'Integración con tus Datos',
+        'Toma de Decisiones Autónoma',
+        'Escalabilidad Ilimitada'
       ]
     }
   ];
@@ -216,7 +232,7 @@ const Servicios: React.FC = () => {
                   <img 
                     src={servicio.imagen} 
                     alt={servicio.titulo}
-                    className="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-1000"
                   />
                 </div>
 
